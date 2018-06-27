@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myresume</title>
+    <style>
+        *{
+            font-family: "Microsoft YaHei UI", sans-serif;
+            font-weight: 500;
+            line-height: 24px;
+            color: #7f7f7f;
+        }
+        body{
+            /*position: absolute;*/
+            margin: 20px auto;
+            width: 880px;
+            border: 1px solid grey;
+            box-shadow: 5px 5px 5px;
+        }
+        p{
+            border: none;
+            margin: 0;
+            text-indent:25px;
+        }
+        .minTitle{
+            text-indent:0;
+        }
+
+        #mLeft,#mRight{
+            /*position: relative;*/
+            /*float: left;*/
+            /*border-style: solid;*/
+            display: inline-block;
+            vertical-align: top;  /*设置顶部对齐*/
+            margin: 10px 5px;
+        }
+        #mLeft{
+            width: 560px;
+            margin-left: 20px;
+            /*border-color: #00FFFF;*/
+        }
+        #mRight{
+            width: 250px;
+            /*height: 1111px;*/
+            /*border-color: #FFFF00;*/
+            padding-left: 10px;
+            background-color: #ecedef;
+        }
+        h2{
+            width: 250px;
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            padding-bottom: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0b628b ;
+        }
+        b{
+            font-weight: 600;
+            color: #7f7f7f;
+
+        }
+        .card{
+            position: absolute;
+            width: 250px;
+            height: 300px;
+            padding: 30px 40px;
+            transition-duration: 1s;
+        }
+        .face{
+            width: 160px;
+            height: 200px;
+            color: #00FFFF;
+            backface-visibility: hidden;
+        }
+        .back{
+            width: 160px;
+            height: 200px;
+            color: #FF0000;
+            transform: rotateY(-180deg);
+            backface-visibility: hidden;
+        }
+        #card:hover .face{
+            transform: rotateY(180deg);
+        }
+        #card:hover .back{
+            transform: rotateY(0deg);
+        }
+        .basic{
+            margin: 20px 10px;
+            padding-top: 200px;
+        }
+        progress {
+            border-radius: 2px;
+            border-left: 1px #ccc solid;
+            border-right: 1px #ccc solid;
+            border-top: 1px #aaa solid;
+            margin-left: 25px;
+            background-color: #eee;
+            height: 12px;
+        }
+        progress::-webkit-progress-bar {
+            background-color: #d7d7d7;
+        }
+        progress::-webkit-progress-value {
+            background-color: #236f93;
+        }
+        #mRight .Info{
+            margin:55px auto;
+        }
+        #mRight h2{
+            border-width: 0;
+        }
+        .ability > div{
+            line-height: 10px;
+        }
+        #mycube{
+            perspective: 400px;
+        }
+        #cube{
+            transform-style: preserve-3d;
+            position: relative;
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            animation: collcube 8s linear infinite;
+            animation-play-state: paused;
+        }
+        .cube{
+            opacity: 0.3;
+            position: absolute;
+            outline: 3px solid #0af;
+            width: 100px;
+            height: 100px;
+            color: #FFFFFF;
+            display: flex;
+            justify-content:center;
+            align-items:Center;
+            font-size: 20px;
+        }
+        .face1{
+            background-color: #0000ff;
+            transform: translateZ(50px);
+        }
+        .face2{
+            background-color: #00FF00;
+            transform: rotateY(180deg) translateZ(50px);
+        }
+        .face3{
+            background-color: #ff0000;
+            transform: rotateY(90deg) translateZ(50px);
+        }
+        .face4{
+            background-color: #ff00ff;
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+        .face5{
+            background-color: #00ffff;
+            transform: rotateX(90deg) translateZ(50px);
+        }
+        .face6{
+            background-color: #ffff00;
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+        @keyframes collcube{
+            100%{transform: rotateY(-360deg);}
+        }
+        #cube:hover{
+            animation-play-state: running;
+        }
+        #mouseT{
+            position: absolute;
+            border: 1px solid lightslategray;
+            background-color: #FFFFFF;
+            border-radius: 3px;
+            opacity: 0.9;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload=function() {
+            let h=document.getElementById("mLeft").scrollHeight;
+            document.getElementById("mRight").style.cssText += `height: ${h}px;`;
+        }
+        function showMT(e,p) {
+            let MT = document.getElementById("mouseT");
+            let x =  e.pageX;
+            let y =  e.pageY;
+            MT.style.cssText = `display: block;left:${x+20}px;top: ${y+10}px;`
+            MT.innerText = `约${p}%`;
+        }
+        function hideMT() {
+            let MT = document.getElementById("mouseT");
+            MT.style.cssText = "display:none;"
+        }
+    </script>
+</head>
+<body>
+<div id="mLeft">
+    <h1>简历</h1>
+    <div class="Info intention">
+        <h2 class="mType">求职意向</h2>
+        <div>
+            <p><b>应聘职位：</b>Web前端工程狮&nbsp;&nbsp;&nbsp;<b>工作地点：</b>浙江 杭州</p>
+        </div>
+    </div>
+    <div class="Info education">
+        <h2 class="mType">教育背景</h2>
+        <div>
+            <p class="minTitle">2016.09-至今&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>杭州电子科技大学&nbsp;仪器科学与技术&nbsp;硕士</b></p>
+            <p>研究生期间学习了通信与网络、数字信号处理、模式识别、数据挖掘等课程。
+                担任学院研究生篮球队队长，组织参加研究生篮球赛。</p>
+        </div>
+        <div>
+            <p class="minTitle">2012.09-2016.07&nbsp;&nbsp;&nbsp;<b>杭州电子科技大学&nbsp;电子信息技术及仪器&nbsp;学士</b></p>
+            <p>本科期间学习了软件技术基础、C/C++程序设计、数学建模、计算机网络、数字图像处理等课程。
+                担任学院青年志愿者协会部长，协调组织管理志愿服务活动。</p>
+        </div>
+    </div>
+    <div class="Info skills">
+        <h2 class="mType">技能特长</h2>
+        <div>
+            <p>能使用Web前端技术(HTML/HTML5、CSS/CSS3、JavaScript/ES6)进行开发，
+                熟悉页面架构和布局，对表现与数据分离、Web语义化等有深刻理解。</p>
+            <p>了解Bootstrap、JQuery等常用框架，了解Ajax运作机制，
+                对前端工程化与模块化开发有一定了解，有编码规范化意识。</p>
+            <p>熟悉java/python/C++开发等后台技术，对OOP思想有较深的理解并能熟练使用， 熟悉MVC、MVVM设计模式。</p>
+            <p>有一定算法基础，了解图像处理算法，能使用OpenCV库进行图像处理，
+                了解机器学习思想以及相关算法（如SVM、 K-最近邻算法、神经网络等）。</p>
+            <p>了解计算机网络通信方面知识原理。</p>
+        </div>
+    </div>
+    <div class="Info projects">
+        <h2 class="mType">科研项目</h2>
+        <div>
+            <p class="minTitle"><b>餐饮管理系统</b></p>
+            <p>项目采用JAVA语言编写，基于MVC三层架构模式。系统包括人事管理、登录管理、报表统计和帮助等。
+                利用Swing组件来创建用户界面，通过JDBC驱动进行基本的数据库操作，实现人员登陆验证、信息增删改查功能。</p>
+        </div>
+        <div>
+            <p class="minTitle"><b>基于混沌理论的音乐信号非线性特征研究</b></p>
+            <p>该研究为研究生期间主要科研课题，课题基于音乐信号是时滞非线性动力学系统这一特点，
+                通过非线性分析手段来验证音乐的非线性特性。成果论文已被国家中文核心期刊录用，并作为后续科研工作的基础。</p>
+        </div>
+    </div>
+    <div class="Info evaluation">
+        <h2 class="mType">自我评价</h2>
+        <div>
+            <p>本人为人诚恳、乐观向上，富有团队精神和竞争意识，拥有较强的组织能力和适应能力；
+                有较强的学习能力和执行力，积极参加院校各种活动；对新鲜事物保持好奇心，并且热衷思考与创新。
+                本人有良好的编程素养，熟悉图像处理方面知识算法。目前正在学习Web前端开发相关技术框架，
+                并将写的demo发布在个人GitHub上，对学习实践Web前端技术抱有强烈的热情。</p>
+        </div>
+    </div>
+</div>
+<div id="mRight">
+    <div id="card">
+        <img class="card face" src="me-1.jpg" alt="什么！头像加载不出来了！！">
+        <img class="card back" src="wx.jpg" alt="What？备用图也加载不出来了！！">
+    </div>
+    <div class="Info basic">
+        <ul>
+            <li>1993.06</li>
+            <li>浙江 杭州</li>
+            <li>159-5810-5948</li>
+            <li>mztjy@qq.com</li>
+        </ul>
+    </div>
+    <div class="Info ability">
+        <h2 class="mType"><-------能力特点-------></h2>
+        <div>
+            <p>团队协作</p>
+            <progress value="75" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <p>计划与执行</p>
+            <progress value="80" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <p>思维理解</p>
+            <progress value="77" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <p>英语能力</p>
+            <progress value="68" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+        </div>
+    </div>
+    <div class="Info award">
+        <h2 class="mType"><-------获得荣誉-------></h2>
+        <div>
+            <p>2017.10&nbsp;院三等奖学金</p>
+            <p>2015.05&nbsp;院三等奖学金</p>
+            <p>2014.05&nbsp;优秀青年志愿服务干部</p>
+            <p>2013.03&nbsp;优秀寝室长</p>
+        </div>
+    </div>
+    <div class="Info interest">
+        <h2 class="mType"><-------兴趣爱好-------></h2>
+        <div>
+            <!--<p>#音乐</p>-->
+            <!--<p>#篮球</p>-->
+            <!--<p>#漫画</p>-->
+            <!--<p>#独立游戏</p>-->
+            <div id="mycube">
+                <div id="cube" >
+                    <div class="cube face1">音乐</div>
+                    <div class="cube face2">篮球</div>
+                    <div class="cube face3">漫画</div>
+                    <div class="cube face4">独立游戏</div>
+                    <div class="cube face5"></div>
+                    <div class="cube face6"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<span id="mouseT"></span>
+</body>
+</html>
