@@ -10,11 +10,11 @@
             font-family: "Microsoft YaHei UI", sans-serif;
             font-weight: 500;
             line-height: 24px;
-            color: #7f7f7f;
+            color: #333;
         }
         body{
             margin: 20px auto;
-            width: 880px;
+            width: 900px;
             border: 1px solid grey;
             box-shadow: 5px 5px 5px;
         }
@@ -33,7 +33,7 @@
             margin: 10px 5px;
         }
         #mLeft{
-            width: 560px;
+            width: 580px;
             margin-left: 20px;
         }
         #mRight{
@@ -45,14 +45,16 @@
             width: 250px;
             border-style: solid;
             border-width: 0 0 1px 0;
-            padding-bottom: 10px;
+            margin: 2px 0 0 0;
+            padding-bottom: 4px;
             font-size: 20px;
             font-weight: 700;
             color: #0b628b ;
         }
         b{
             font-weight: 600;
-            color: #7f7f7f;
+            margin-top: 5px;
+            color: #333;
         }
         .card{
             position: absolute;
@@ -89,9 +91,10 @@
             border-left: 1px #ccc solid;
             border-right: 1px #ccc solid;
             border-top: 1px #aaa solid;
-            margin-left: 25px;
+            margin: 5px 25px 10px 20px;
             background-color: #eee;
             height: 12px;
+            width: 180px;
         }
         progress::-webkit-progress-bar {
             background-color: #d7d7d7;
@@ -171,17 +174,30 @@
             opacity: 0.9;
             display: none;
         }
+        ul{
+         margin: 0 0 5px 0;
+        }
+        .honor{
+            margin: 10px auto;
+        }
+        .resume{
+            padding-top: 40px;
+            opacity: 0;
+        }
+        .resume:hover{
+            opacity: 1;
+        }
     </style>
     <script>
         window.onload=function() {
             let h=document.getElementById("mLeft").scrollHeight;
             document.getElementById("mRight").style.cssText += `height: ${h}px;`;
-        }
+        };
         function showMT(e,p) {
             let MT = document.getElementById("mouseT");
             let x =  e.pageX;
             let y =  e.pageY;
-            MT.style.cssText = `display: block;left:${x+20}px;top: ${y+10}px;`
+            MT.style.cssText = `display: block;left:${x+20}px;top: ${y+10}px;`;
             MT.innerText = `约${p}%`;
         }
         function hideMT() {
@@ -192,7 +208,7 @@
 </head>
 <body>
 <div id="mLeft">
-    <h1>简历</h1>
+    <!--<h1>简历</h1>-->
     <div class="Info intention">
         <h2 class="mType">求职意向</h2>
         <div>
@@ -215,28 +231,48 @@
     <div class="Info skills">
         <h2 class="mType">技能特长</h2>
         <div>
-            <p>能使用Web前端技术(HTML/HTML5、CSS/CSS3、JavaScript/ES6)进行开发，
+            <p>->能使用Web前端技术(HTML/HTML5、CSS/CSS3、JavaScript/ES6)进行开发，
                 熟悉页面架构和布局，对表现与数据分离、Web语义化等有深刻理解。</p>
-            <p>了解Bootstrap、JQuery等常用框架，了解Ajax运作机制，
+            <p>->了解Bootstrap、JQuery等常用框架，了解Ajax运作机制，
                 对前端工程化与模块化开发有一定了解，有编码规范化意识。</p>
-            <p>熟悉java/python/C++开发等后台技术，对OOP思想有较深的理解并能熟练使用，熟悉MVC、MVVM设计模式。</p>
-            <p>熟悉MySQL、SQL Server数据库，掌握SQL语句书写。</p>
-            <p>有一定算法基础，了解图像处理算法，能使用OpenCV库进行图像处理，
+            <p>->熟悉java/python/C++开发等后台技术，对OOP思想有较深的理解并能熟练使用，熟悉MVC、MVVM设计模式。</p>
+            <p>->熟悉MySQL、SQL Server数据库，掌握SQL语句书写。</p>
+            <p>->有一定算法基础，了解图像处理算法，能使用OpenCV库进行图像处理，
                 了解机器学习思想以及相关算法（如SVM、K-最近邻算法、神经网络等）。</p>
-            <p>了解计算机网络通信方面知识原理。</p>
+            <p>->了解计算机网络通信方面知识原理。</p>
         </div>
     </div>
     <div class="Info projects">
         <h2 class="mType">科研项目</h2>
         <div>
-            <p class="minTitle"><b>餐饮管理系统</b></p>
-            <p>项目采用JAVA语言编写，基于MVC三层架构模式。系统包括人事管理、登录管理、报表统计和帮助等。
-                利用Swing组件来创建用户界面，通过JDBC驱动进行基本的数据库操作，实现人员登陆验证、信息增删改查功能。</p>
+            <p class="minTitle"><b>科比职业生涯投篮选择预测</b></p>
+            <p>由于科研需要用到机器学习方法，所以自学了一下，在网上找了一些数据集，练习了一下机器学习方法。</p>
+            <ul>
+                <li>在Ubuntu系统下通过Anaconda搭建python开发环境。</li>
+                <li>对科比职业生涯投篮数据集进行整理，预先去除一些无关特征、冗余特征。</li>
+                <li>使用tensorflow框架搭建神经网络模型，反复调整神经网络结构、激活函数与学习率，进行训练与测试。</li>
+                <li>使用 scikit-learn模块中的决策树模型、随机森林模型、AdaBoostClassifier、GradientBoostingClassifier等模型进行训练与测试。    </li>
+                <li>最终对科比生涯投篮选择预测的准确率达到 86%以上。</li>
+            </ul>
+        </div>
+        <div>
+            <p class="minTitle"><b>简单餐饮管理系统</b></p>
+            <p>该项目采用Java语言编写，基于MVC三层架构模式。系统包括人事管理、登录管理、报表统计和帮助等。</p>
+            <ul>
+                <li>在Windows操作系统下使用eclipse编程环境进行代码编写调试。</li>
+                <li>利用Java原生Swing组件来创建简单用户界面。</li>
+                <li>通过JDBC驱动与SQL Server数据库进行连接，完成基本的数据库操作。</li>
+                <li>最终系统实现了人员登陆验证、信息增删改查等功能。</li>
+            </ul>
         </div>
         <div>
             <p class="minTitle"><b>基于混沌理论的音乐信号非线性特征研究</b></p>
-            <p>该研究为研究生期间主要科研课题，课题基于音乐信号是时滞非线性动力学系统这一特点，
-                通过非线性分析手段来验证音乐的非线性特性。成果论文已被国家中文核心期刊录用，并作为后续科研工作的基础。</p>
+            <p>该研究为研究生期间主要科研课题，课题基于音乐信号是时滞非线性动力学系统这一特点， 通过非线性分析手段来验证音乐的非线性特性。</p>
+            <ul>
+                <li>根据钢琴曲目表达的情感特点，选取了数首经典的钢琴曲作为实验研究对象，并完成了去噪、分帧等预处理。</li>
+                <li>创新地将动力学系统中的非线性分析手段引入到音乐信号的分析当中。</li>
+                <li>实验的成果已以论文的形式已被国家中文核心期刊录用，并作为后续科研工作的基础。</li>
+            </ul>
         </div>
     </div>
     <div class="Info evaluation">
@@ -256,41 +292,39 @@
     </div>
     <div class="Info basic">
         <ul>
-            <li>1993.06</li>
-            <li>浙江 杭州</li>
-            <li>159-5810-5948</li>
-            <li>mztjy@qq.com</li>
+            <li>生日：1993.06</li>
+            <li>地址：浙江 杭州</li>
+            <li>号码：159-5810-5948</li>
+            <li>邮箱：mztjy@qq.com</li>
         </ul>
     </div>
     <div class="Info ability">
         <h2 class="mType"><-------能力特点-------></h2>
         <div>
             <p>团队协作</p>
-            <progress value="75" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <progress value="72" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
             <p>计划与执行</p>
-            <progress value="80" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
-            <p>思维理解</p>
             <progress value="77" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <p>学习能力</p>
+            <progress value="81" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <p>思维理解</p>
+            <progress value="74" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
             <p>英语能力</p>
-            <progress value="68" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
+            <progress value="65" max="100" onmouseover="showMT(event,this.value)" onmouseleave="hideMT()"></progress>
         </div>
     </div>
     <div class="Info award">
         <h2 class="mType"><-------获得荣誉-------></h2>
         <div>
-            <p>2017.10&nbsp;院三等奖学金</p>
-            <p>2015.05&nbsp;院三等奖学金</p>
-            <p>2014.05&nbsp;优秀青年志愿服务干部</p>
-            <p>2013.03&nbsp;优秀寝室长</p>
+            <p class="honor">2017.10&nbsp;院三等奖学金</p>
+            <p class="honor">2015.05&nbsp;院三等奖学金</p>
+            <p class="honor">2014.05&nbsp;优秀青年志愿服务干部</p>
+            <p class="honor">2013.03&nbsp;优秀寝室长</p>
         </div>
     </div>
     <div class="Info interest">
         <h2 class="mType"><-------兴趣爱好-------></h2>
         <div>
-            <!--<p>#音乐</p>-->
-            <!--<p>#篮球</p>-->
-            <!--<p>#漫画</p>-->
-            <!--<p>#独立游戏</p>-->
             <div id="mycube">
                 <div id="cube" >
                     <div class="cube face1">音乐</div>
@@ -303,6 +337,9 @@
             </div>
 
         </div>
+    </div>
+    <div class="Info resume">
+        <a href="https://blackcarbo.github.io/Resume/resume.html"><p>不断学习，不断进步。简历也会持续更新，点击查看最新简历。</p></a>
     </div>
 </div>
 <span id="mouseT"></span>
